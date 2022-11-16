@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "1e4795697dc187df3dba",
+    "revision": "dc4ca88284ca794ed2d0",
     "url": "/gamestation/static/css/main.8387873b.chunk.css"
   },
   {
-    "revision": "1e4795697dc187df3dba",
-    "url": "/gamestation/static/js/main.1e479569.chunk.js"
+    "revision": "dc4ca88284ca794ed2d0",
+    "url": "/gamestation/static/js/main.dc4ca882.chunk.js"
   },
   {
     "revision": "a32f846d9e7000f073ad",
@@ -28,7 +28,7 @@ self.__precacheManifest = [
     "url": "/gamestation/static/media/login-background.ba486041.jpg"
   },
   {
-    "revision": "473ccbedc64df5d464eb0c847cb45dd0",
+    "revision": "f8ee018b8fb09d4dfeeb321ca2e685e5",
     "url": "/gamestation/index.html"
   }
 ];

@@ -1,7 +1,7 @@
 {
   "main.css": "/gamestation/static/css/main.8387873b.chunk.css",
-  "main.js": "/gamestation/static/js/main.1e479569.chunk.js",
-  "main.js.map": "/gamestation/static/js/main.1e479569.chunk.js.map",
+  "main.js": "/gamestation/static/js/main.dc4ca882.chunk.js",
+  "main.js.map": "/gamestation/static/js/main.dc4ca882.chunk.js.map",
   "static/js/1.a32f846d.chunk.js": "/gamestation/static/js/1.a32f846d.chunk.js",
   "static/js/1.a32f846d.chunk.js.map": "/gamestation/static/js/1.a32f846d.chunk.js.map",
   "runtime~main.js": "/gamestation/static/js/runtime~main.4e40d68d.js",
@@ -11,6 +11,6 @@
   "static/media/login.css": "/gamestation/static/media/login-background.ba486041.jpg",
   "static/css/main.8387873b.chunk.css.map": "/gamestation/static/css/main.8387873b.chunk.css.map",
   "index.html": "/gamestation/index.html",
-  "precache-manifest.b03fa40ac516dbe171e7b4f144da15c9.js": "/gamestation/precache-manifest.b03fa40ac516dbe171e7b4f144da15c9.js",
+  "precache-manifest.07e8bed97141877ae80fc5aba7069f16.js": "/gamestation/precache-manifest.07e8bed97141877ae80fc5aba7069f16.js",
   "service-worker.js": "/gamestation/service-worker.js"
 }
