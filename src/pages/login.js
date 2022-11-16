@@ -1,10 +1,11 @@
 import '../styles/login.css'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 function Login() {
     const [ userData, setUserData ] = useState({userName: "", password: ""})
     const [ alertState, setAlertState ] = useState({state: false, content: 'default alert content'})
+    const [ redirectState, setRedirectState ] = useState(false)
     const navigate = useNavigate()
  
     function setUserName(value){
@@ -30,11 +31,18 @@ function Login() {
                 })
             }, 5000);
         }else {
-            navigate('/gamestation/home')
+            setRedirectState(true)        
             console.log(userData)
         }
     }
 
+    useEffect(()=>{
+        if(redirectState){
+            navigate('/gamestation/home')
+        }else {
+            return
+        }
+    }, [redirectState])
 
     return (<>
         <div className="background">
