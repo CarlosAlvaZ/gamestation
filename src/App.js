@@ -8,8 +8,8 @@ import Navbar from './components/Navbar'
 function App() {
   return (
     <Routes>
-      <Route path='/gamestation/login' element={<Login />}/>
-      <Route path='/gamestation/home/' element={<Navbar />}>
+      <Route path='/login' element={<Login />}/>
+      <Route path='/' element={<Navbar />}>
         <Route index element={<Home />} />
       </Route>
       <Route path='*' element={<NotFound />}/>
