@@ -1,9 +1,11 @@
 import '../styles/login.css'
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function Login() {
     const [ userData, setUserData ] = useState({userName: "", password: ""})
     const [ alertState, setAlertState ] = useState({state: false, content: 'default alert content'})
+    const navigate = useNavigate()
  
     function setUserName(value){
         setUserData((previousValue)=>{
@@ -28,6 +30,7 @@ function Login() {
                 })
             }, 5000);
         }else {
+            navigate('/gamestation/home')
             console.log(userData)
         }
     }
