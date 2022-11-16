@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Layout from '../components/Layout'
 import WishListCard from '../components/WishListCard'
 import AddNew from '../components/AddNew'
@@ -10,6 +10,7 @@ export default function Home() {
 
     const [ creatingNewElement, setCreatingNewElement ] = useState(false)
     const [ draggingState, setDraggingState ] = useState({dragging: false, draggingOverRemoveElement: false})
+    const [ data, setData ] = useState([])
 
 
     function changeCreatingState(){
@@ -35,26 +36,30 @@ export default function Home() {
         })
     }
 
+    function getData(){
+        fetch('https://proyectosid2.herokuapp.com/lists/')
+            .then(res => res.json())
+            .then(res => {
+                const { data = [] } = res
+                setData(data)
+            }).catch(error => console.log( "Al programa le dio amsiedad", error )) 
+    } 
+
+    useEffect( () => {
+        getData()
+    }, [creatingNewElement, draggingState] )
+
     return (
         <>  
             <div style={{width: '100%', minHeight: '80vh', display: 'flex', flexDirection: 'column'}}>  
                 <Layout title="Listas de Deseos">
-                    <CreateNewList displayed={creatingNewElement}  handler={changeCreatingState}/>
+                    <CreateNewList displayed={creatingNewElement}  handler={changeCreatingState} updateLists={getData} />
                     <div className='cards'>
 
                         {
-                            fetch('http://localhost:3000/lists')
-                            .then(res => res.json)
-                            .then(res => {
-                                console.log(res)
-
-                                res.map( item => {
-                                    return (
-                                        <WishListCard id={item._id} color={item.color} title={item.nombre_lista} items={item.elementos.length} 
-                                        draggHandler={ e => changeDraggingState(e)} draggingState={draggingState}/>
-                                    )
-                                })
-                            })    
+                            data.map( lista => {
+                                return <WishListCard key={lista._id} id={lista._id} title={lista.nombre_lista} color={lista.color} items={`${lista.elementos.length} elementos`} draggHandler={ e => changeDraggingState(e) } draggingState={draggingState} />
+                            } )
                         }
 
                         <AddNew handler={changeCreatingState} dragging={draggingState.dragging}/>

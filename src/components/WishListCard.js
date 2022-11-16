@@ -17,7 +17,10 @@ export default function WishListCard({id, color, title, items, draggHandler, dra
     
     const calcDragg = e => {
         if(draggingState.draggingOverRemoveElement){
-            console.log(id)
+            fetch(`https://proyectosid2.herokuapp.com/lists/${id}`, {
+                method : 'DELETE',
+            }).then(res=>res.json()).then(res=>console.log(res))
+                .catch(error => console.log(error))
         } else {
             return
         }

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import close from '../imgs/close.png'
 import '../styles/createNewList.css'
 
-export default function CreateNewList( { displayed, handler } ) {
+export default function CreateNewList( { displayed, handler, updateLists } ) {
     
     const [formData, setFormData] = useState({color: '1'})
 
@@ -15,6 +15,29 @@ export default function CreateNewList( { displayed, handler } ) {
     const handleSubmit = e => {
         e.preventDefault()
         console.log(formData)
+
+        const dataToPost = {
+            nombre_lista : formData.title,
+            color : formData.color,
+            descripcion : formData.description,
+            elementos: []
+        }
+
+        fetch("https://proyectosid2.herokuapp.com/lists/", {
+            method : 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body : JSON.stringify(dataToPost),
+        }).then(res=>res.json()).then(res=>updateLists())
+            .catch(error => console.log(error.json()))
+
+        handler()
+        setFormData({
+            title: "",
+            description: "",
+            color: "1"
+        })
     }
 
   return (
