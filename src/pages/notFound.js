@@ -8,7 +8,7 @@ export default function NotFound() {
 
     useEffect(()=>{
         setTimeout(() => {
-            navigate("/gamestation/login", {replace: true})
+            navigate("/gamestation/home", {replace: true})
         }, 3000)
     }, [])
     
